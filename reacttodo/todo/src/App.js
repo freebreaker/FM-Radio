@@ -9,8 +9,8 @@ import "./App.css";
 import "./TodoItem.css";
 import "./TodoInput.css";
 import Sortable from 'sortablejs';
+import UserDialog from './UserDialog'
 
-import * as localStore from './localStore';
 
 // var TestObject = AV.Object.extend('TestObject');
 // var testObject = new TestObject();
@@ -43,7 +43,7 @@ class App extends Component {
       //   // {id:1,title:'第一个待办'},
       //   // {id:2, title:'第二个待办'}
       // ]
-       todoList: localStore.load('todoList') || []
+       todoList:[]
 
     }
   }
@@ -73,6 +73,7 @@ class App extends Component {
         <ol className="todoList" id='sort'>
           {todos}
         </ol>
+        <UserDialog/>
       </div>  
     )
   }
@@ -84,7 +85,7 @@ class App extends Component {
          });
       }
   componentDidUpdate(){
-     localStore.save('todoList',this.state.todoList)
+    //  localStore.save('todoList',this.state.todoList)
   }
 
 
