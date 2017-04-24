@@ -20,16 +20,10 @@
     }
     signUp(e){}
     signIn(e){}
-    changeUsername(e){
-        let copyState=JSON.parse(JSON.stringify(this.state)) // 用 JSON 深拷贝
-        copyState.formData.username=e.target.value
+    changeFormData(key,e){
+        let copyState=JSON.parse(JSON.stringify(this.state))
+        copyState.formData[key]=e.target.value
         this.setState(copyState)
-    }
-
-    changePassword(e){
-        let stateCopy = JSON.parse(JSON.stringify(this.state))  
-        stateCopy.formData.password = e.target.value
-        this.setState(stateCopy)
     }
 
     render(){
@@ -38,12 +32,12 @@
           <div className="row">
             <label>用户名</label> 
             <input type="text" value={this.state.formData.username}
-            onChange={this.changeUsername.bind(this)}/>
+            onChange={this.changeFormData.bind(this,'username')}/>
           </div>
           <div className="row">
             <label>密码</label>
             <input type="password" value={this.state.formData.password}
-            onChange={this.changePassword.bind(this)}/>
+            onChange={this.changeFormData.bind(this,'password')}/>
           </div>
           <div className="row actions">
             <button type="submit">注册</button>
@@ -55,12 +49,12 @@
           <div className="row">
             <label>用户名</label>
             <input type="text" value={this.state.formData.username}
-            onChange={this.changeUsername.bind(this)}/>
+            onChange={this.changeFormData.bind(this,'username')}/>
           </div>
           <div className="row">
             <label>密码</label>
             <input type="password" value={this.state.formData.password}
-            onChange={this.changePassword.bind(this)}/>
+            onChange={this.changeFormData.bind(this,'password')}/>
           </div>
           <div className="row actions">
             <button type="submit">登录</button>
