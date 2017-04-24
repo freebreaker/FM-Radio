@@ -43,7 +43,8 @@ class App extends Component {
       //   // {id:1,title:'第一个待办'},
       //   // {id:2, title:'第二个待办'}
       // ]
-       todoList:[]
+       todoList:[],
+       user: {}
 
     }
   }
@@ -63,7 +64,7 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <h1>我的TODO</h1>
+        <h1>{this.state.user.username||'我'}的待办</h1>
           <div className="inputWarpper">
             <TodoInput content={this.state.newTodo}
             onChange={this.changeTitle.bind(this)} 
@@ -73,10 +74,15 @@ class App extends Component {
         <ol className="todoList" id='sort'>
           {todos}
         </ol>
-        <UserDialog/>
+        <UserDialog onSignUp={this.onSignUp.bind(this)}/>
       </div>  
     )
   }
+
+  onSignUp(user){
+     this.state.user = user
+     this.setState(this.state)
+ }
 
   componentDidMount() {
       var el = document.getElementById('sort');

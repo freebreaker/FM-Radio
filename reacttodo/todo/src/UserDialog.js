@@ -19,8 +19,20 @@
             selected:e.target.value
         })
     }
-    signUp(e){}
+    signUp(e){
+        e.preventDefault()
+        let {username, password} = this.state.formData
+        let success = (user)=>{
+            this.props.onSignUp.call(null, user)
+        }
+        let error = (error)=>{
+            console.log(error)
+        }
+        signUp(username, password, success, error)
+    }
+
     signIn(e){}
+
     changeFormData(key,e){
         let copyState=JSON.parse(JSON.stringify(this.state))
         copyState.formData[key]=e.target.value
