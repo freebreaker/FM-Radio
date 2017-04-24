@@ -37,6 +37,10 @@ export default AV
    }
  }
  
+ export function signOut(){
+   AV.User.logOut()
+   return undefined
+ }
   
   function getUserFromAVUser(AVUser){
     return {

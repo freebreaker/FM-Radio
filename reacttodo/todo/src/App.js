@@ -10,7 +10,7 @@ import "./TodoItem.css";
 import "./TodoInput.css";
 import Sortable from 'sortablejs';
 import UserDialog from './UserDialog';
-import {getCurrentUser} from './leanCloud'
+import {getCurrentUser, signOut} from './leanCloud'
 
 
 // var TestObject = AV.Object.extend('TestObject');
@@ -65,7 +65,9 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <h1>{this.state.user.username||'我'}的待办</h1>
+         <h1>{this.state.user.username||'我'}的待办
+           {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
+         </h1>
           <div className="inputWarpper">
             <TodoInput content={this.state.newTodo}
             onChange={this.changeTitle.bind(this)} 
@@ -80,6 +82,12 @@ class App extends Component {
     )
   }
 
+  signOut(){
+      signOut()
+      let copyState = JSON.parse(JSON.stringify(this.state))
+      copyState.user = {}
+      this.setState(copyState)
+    }
   onSignUp(user){
     //  this.state.user = user
     //  this.setState(this.state)
