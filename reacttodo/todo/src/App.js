@@ -9,7 +9,8 @@ import "./App.css";
 import "./TodoItem.css";
 import "./TodoInput.css";
 import Sortable from 'sortablejs';
-import UserDialog from './UserDialog'
+import UserDialog from './UserDialog';
+import {getCurrentUser} from './leanCloud'
 
 
 // var TestObject = AV.Object.extend('TestObject');
@@ -44,7 +45,7 @@ class App extends Component {
       //   // {id:2, title:'第二个待办'}
       // ]
        todoList:[],
-       user: {}
+       user: getCurrentUser() || {}
 
     }
   }
