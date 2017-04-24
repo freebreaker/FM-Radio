@@ -1,5 +1,6 @@
  import React, { Component } from 'react';
- import './UserDialog.css'
+ import './UserDialog.css';
+ import {signUp} from './leanCloud'
   //import './UserDialog.css'
   export default class UserDialog extends Component{
     constructor(props){
