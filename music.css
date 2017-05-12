@@ -59,7 +59,8 @@ body{
   position: absolute;
   top:2.4rem;
   right:1rem;
-  background: #707b86
+  background: #707b86;
+    cursor: pointer;
 }
 .nav .voice .volume{
   position: absolute;
@@ -68,6 +69,7 @@ body{
   height: 2px;
   position: absolute;
   background: #47bbd0;
+
 }
 
 .nav .songName{
