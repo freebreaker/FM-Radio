@@ -12,4 +12,3 @@
 
 ![](https://github.com/freebreaker/music-Player/blob/master/images/player.png)
 
-![](https://github.com/freebreaker/music-Player/blob/master/images/music.png)
