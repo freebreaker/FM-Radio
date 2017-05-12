@@ -1,0 +1,76 @@
+
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="referrer" content="never">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>MusicPlayer</title>
+    <link rel="stylesheet" href="./music.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_4qm95xcyoa5g66r.css">
+</head>
+<body>
+    <div class="MusicPlayer">
+        <div class="nav">
+                <span class="th-list"><i class="fa fa-th-list"></i></span>
+                <span class="songName"></span>
+                <span class="singer">周杰伦</span>
+                <span class="iconfont icon-bofangqiyinliang"></span>
+                <div class="voice"><span class="volume"></span></div>
+        </div>
+
+        <div class="main">
+            <div class="lyrics">
+                <ul class="lyricsUl">
+
+                </ul>
+
+            </div>
+            <div class="box">
+                <div class="progress">
+ 
+                    <span class="play"><i class="fa fa-pause"></i></span>
+ 
+                    <!--构建播放、暂停按钮-->
+                    <!--创建进度条-->
+                    <div id="bar">
+                        <span id="progressBar"></span>
+                    </div>
+                    <!--创建控制点，在js中别忘了设置结束的控制点-->
+                    <span id="control"></span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="functions">
+                <span class="random"><i class="fa iconfont icon-shuffle"></i></span>
+                <span class="back"><i class="fa fa-step-backward"></i></span>
+                <span class="forward"><i class="fa fa-step-forward"></i></span>
+                <span class="heart"><i class="fa fa-heart red"></i></span>
+                <span class="share"><i class="fa fa-share-square"></i></span>
+
+  
+            </div>
+        </footer>	
+    </div>
+
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.10.0/jquery.min.js"></script>
+<script type="text/javascript" src="./music.js"></script>
+
+
+</body>
+</html>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+

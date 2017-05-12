@@ -1,0 +1,195 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+li{
+  list-style: none;
+}
+.fa{
+  color: #707b86;
+  cursor: pointer;
+}
+.fa:hover{
+  color:#eef1f2;
+}
+
+body{
+  background: #d2d5d6;
+}
+
+/*整体和nav部分*/
+.MusicPlayer{
+  max-width: 31.87rem;
+  max-height: 41.25rem;
+  margin: 0 auto;
+  margin-top: 5%;
+  font-family:cursive,microsoft Yahei;
+  box-shadow: 0px 6px 7px #999;
+}
+
+.nav{
+  position: relative;
+  background-color: #1f1f1f;
+  width: 100%;
+  height: 8%;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.th-list .fa{
+  display: block;
+  float: left;
+  color: #707b86;
+  font-size: 2rem;
+  padding: 22px 24px 14px 25px;
+}
+
+.nav .iconfont{
+  position: absolute;
+  top:0.5rem;
+  right:3rem;
+  color: #707b86;
+  font-size: 2rem;
+  padding: 14px 30px 14px 10px;
+}
+
+.nav .voice{
+
+  width: 3.6rem;
+  height: 2px;
+  position: absolute;
+  top:2.4rem;
+  right:1rem;
+  background: #707b86
+}
+.nav .voice .volume{
+  position: absolute;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  position: absolute;
+  background: #47bbd0;
+}
+
+.nav .songName{
+  display: block;
+  font-size: 1.5rem;
+  padding-top: 0.25rem;
+  color:#707b86;
+}
+.singer{
+  display: block;
+  margin-top: 0.3rem;
+   color:#707b86;
+}
+
+
+/*main部分*/
+.main{
+  width: 100%;
+  height: 33rem;
+  overflow: hidden;
+  position: relative;
+	transition: all 0.51s;
+}
+
+.main .lyrics{
+  background-color: rgba(100, 100, 100, 0.5)
+}
+
+.main ul{
+
+  position: relative;
+  transition: all 1s;
+}
+
+.main ul li{
+  font-size: 1.2rem;
+  padding: 5px 0 2px 0;
+	position: relative;
+	text-align: center;
+	color: rgba(255, 255, 255, 0.6);
+	transition: all 1s;
+}
+
+.main .active{
+  font-size: 1.4rem;
+  color: #fff;
+}
+.lyrics{
+  width: 100%;
+  height: 100%；
+}
+
+
+.box{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3.2rem;
+  background-color: #6d6f75;
+  opacity: 0.7;
+}
+
+
+/*进度条的样式*/
+.progress{
+  padding:16px 0 16px 0;
+}
+.play .fa{
+  color: white;
+  font-size: 1.5rem;
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+#control{
+  margin-left: 10px;
+  color: #fff;
+}
+#bar{
+  display: inline-block;
+  height: 1rem;
+  width: 75%;
+  background: #414141;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+#progressBar{
+  height: 1rem;
+  border-radius: 5px;
+  background: #47bbd0;
+  position: absolute;
+  left: 0;
+
+}
+
+/*底部样式*/
+footer{
+  width: 100%;
+  height: 10%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #1f1f1f;
+}
+
+.functions span{
+  display: inline-block;
+  margin-right: 4rem;
+  padding-top:2.2rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+  left: 2.8rem;
+}
+
+
+.functions span .fa{
+  font-size: 2rem;
+}
+
+/*图标颜色*/
+
+.heart .red{
+  color: #f01d54;
+}
