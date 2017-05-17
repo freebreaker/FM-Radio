@@ -10,15 +10,12 @@ var music=new Audio(),
     musicIndex = 0,
     randomIndex=1;
 
-window.onload=getMusic()
+window.onload=getMusic()     //页面刚开始就加载 
+music.autoplay = true  //自动播放
 
 
 
-music.autoplay = true
-
-
-
-$play.click(function(){
+$play.click(function(){     //点击播放按钮和暂停按钮之间的切换
     if(this.querySelector('.fa').classList.contains('fa-play')){
         music.play()
     }else{
@@ -28,7 +25,7 @@ $play.click(function(){
     this.querySelector('.fa').classList.toggle('fa-pause')
 })
 
-$random.click(function(){
+$random.click(function(){        //同理 循环播放和随机播放的切换 通过class来实现就行
     var randomList=["icon-shuffle","icon-single","icon-xunhuanbofang"];
         $random.removeClass(randomList[randomIndex-1]);
         $random.addClass(randomList[randomIndex]);
@@ -40,35 +37,28 @@ $random.click(function(){
             randomIndex++   
         };
 
-        // if("span:contains(icon-shuffle)"){
-        //     music.loop = true
-        // }else if("span:contains(icon-single)"){
-        //     music.loop = true
-        // }else if("span:contains(icon-xunhuanbofang)"){
-            
-        // }
 })
 
 
 
-$back.click(getMusic)
-$forward.click(getMusic)
+$back.click(getMusic)   //点击后退  得到音乐
+$forward.click(getMusic)  //点击前进  得到音乐
 
 
 
 //获取歌曲的ajax
-function getMusic(){
+function getMusic(){     //通过json格式  获得端口的数据
     $.ajax({
         url:"https://jirenguapi.applinzi.com/fm/getSong.php?channel=public_fengge_xiaoqingxin",
         dataType:"json",
         type:"get",
         data:"",
-        success:playMusic,
+        success:playMusic,    //获取成功后 播放音乐
         error:function(){
             alert("获取失败")
         }
     })
-    $('.fa-play').removeClass('fa-play').addClass("fa-pause");
+    $('.fa-play').removeClass('fa-play').addClass("fa-pause");  //播放音乐 去掉播放的状态 改为暂停状态
 }
 
 
@@ -99,8 +89,6 @@ function playMusic(data){
 
 
 //获取歌词
-
-
 function getLyrics(Sid,Ssid){
     $.ajax({
         url:"https://jirenguapi.applinzi.com/fm/getLyric.php",
@@ -220,10 +208,6 @@ $("#bar").mousedown(function(event){
 
 
 //控制footer里的function
-
-
-
-
 $heart.click(function(){
     $(this).toggleClass("red");
 })
@@ -231,11 +215,6 @@ $heart.click(function(){
 
 
 //控制音量
-function volumeLen(){
-
-
-}
-
 $(".voice").mousedown(function(event){
     var volumeX=event.clientX,
         volumeWidth=$(".voice").width(),
