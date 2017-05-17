@@ -4,6 +4,7 @@
   "version": "0.1.2",
   "private": true,
   "dependencies": {
+    "leancloud-storage": "^2.1.4",
     "normalize.css": "^6.0.0",
     "react": "^15.5.3",
     "react-dom": "^15.5.3",

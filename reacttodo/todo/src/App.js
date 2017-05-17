@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TodoInput from './TodoInput.js';
-import TodoItem from './TodoItem.js';
+import TodoInput from './TodoInput';
+import TodoItem from './TodoItem';
 import 'normalize.css';
 import "./reset.css";
 import "./App.css";
 import "./TodoItem.css";
 import "./TodoInput.css";
-import Sortable from 'sortablejs'
+import Sortable from 'sortablejs';
+import UserDialog from './UserDialog';
+import {getCurrentUser, signOut} from './leanCloud'
+
+
+// var TestObject = AV.Object.extend('TestObject');
+// var testObject = new TestObject();
+// testObject.save({
+//   words: 'Hello bigbig!'
+// }).then(function(object) {
+//   alert('LeanCloud Rocks!');
+// })
 
 
 class App extends Component {
@@ -29,10 +40,13 @@ class App extends Component {
     super(props)
     this.state={
       newTodo:'',
-      todoList:[
-        // {id:1,title:'第一个待办'},
-        // {id:2, title:'第二个待办'}
-      ]
+      // todoList:[
+      //   // {id:1,title:'第一个待办'},
+      //   // {id:2, title:'第二个待办'}
+      // ]
+       todoList:[],
+       user: getCurrentUser() || {}
+
     }
   }
 
@@ -51,7 +65,9 @@ class App extends Component {
 
     return (
       <div className='App'>
-        <h1>我的TODO</h1>
+         <h1>{this.state.user.username||'我'}的待办
+           {this.state.user.id ? <button onClick={this.signOut.bind(this)}>登出</button> : null}
+         </h1>
           <div className="inputWarpper">
             <TodoInput content={this.state.newTodo}
             onChange={this.changeTitle.bind(this)} 
@@ -61,8 +77,24 @@ class App extends Component {
         <ol className="todoList" id='sort'>
           {todos}
         </ol>
+        {this.state.user.id ? null : <UserDialog 
+          onSignUp={this.onSignUpOrSignIn.bind(this)} 
+          onSignIn={this.onSignUpOrSignIn.bind(this)}/>}
       </div>  
     )
+  }
+
+  signOut(){
+      signOut()
+      let copyState = JSON.parse(JSON.stringify(this.state))
+      copyState.user = {}
+      this.setState(copyState)
+    }
+
+  onSignUpOrSignIn(user){
+      let stateCopy = JSON.parse(JSON.stringify(this.state)) 
+      stateCopy.user = user
+      this.setState(stateCopy)
   }
 
   componentDidMount() {
@@ -71,17 +103,22 @@ class App extends Component {
               animation: 100
          });
       }
+  componentDidUpdate(){
+    //  localStore.save('todoList',this.state.todoList)
+  }
 
 
 
        delete(event, todo){
         todo.deleted = true
         this.setState(this.state) 
+        // localStorage.save('todoList',this.state.todoList)
     }
 
       toggle(e, todo){
         todo.status = todo.status === 'completed' ? '' : 'completed'
-        this.setState(this.state) 
+        this.setState(this.state)
+        //localStorage.save('todoList',this.state.todoList) 
     }
 
 
@@ -91,6 +128,7 @@ class App extends Component {
         newTodo: event.target.value,
         todoList: this.state.todoList
       })
+      //localStorage.save('todoList',this.state.todoList)
     }
 
 
@@ -109,6 +147,7 @@ class App extends Component {
         newTodo: '',
         todoList: this.state.todoList
       })
+     // localStorage.save('todoList',this.state.todoList)
   }
 
 
