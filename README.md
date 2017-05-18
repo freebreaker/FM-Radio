@@ -2,7 +2,7 @@
 
 # 一款精致简单的播放器
 
-[在线demo](https://freebreaker.github.io/music-Player/music.html)
+[在线demo](https://freebreaker.github.io/FM-Radio/music.html)
  
 # 功能包括：单曲循环、歌词轮播等等
  
